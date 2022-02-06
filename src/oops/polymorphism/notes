@@ -1,0 +1,13 @@
+Overloading:
+Same method with different parameters
+Using two or methods belong to the same class, have the same name, but have more or different (type of) parameters (we "overloaded" the method)
+You can overload a method as much as you want in the same class
+Same "box" (method name) in the same "room" (class name), but we're filling it with more "stuff" (parameters and/or parameter data types)
+Allows for the use of the same method in multiples ways, with multiple different parameters; all of the methods (with its different parameters) must be declared beforehand
+
+Overriding:
+Same method and parameters, but different body
+Same method name (with the same parameters) in different classes (accessible via inheritance), but the method has a different body
+In practice, this is done when the method is accessed by a class via inheritance from another class
+Otherwise it's pointless to override a method that is declared within the same class as the method that is doing the overriding
+Use the "@Override" annotation when overriding a method; place it right above the new method's declaration

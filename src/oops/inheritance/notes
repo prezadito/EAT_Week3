@@ -1,0 +1,17 @@
+Inheritance is a mechanism to acquire properties from one class to another class
+
+Inheritance allows for one class to get the properties of another class without writing out the code
+To use inheritance, add the "extends" keyword after the class name and give the name of the class you want to inherit the properties from. ex: public class Son extends Father { }
+Inherited/extended properties (from Father) are accessible via the creation of that class' (Son) object instances (in the main class for example)
+The Son class object will also have access to any properties the Father class inherited (from the GrandFather class for example)
+
+Single inheritance: When a class inherits properties from one clas only (ex: Son <- Father)
+Multi-level inheritance: When a class inherits properties from multiple classes (ex: Son <- Father & Son <- GrandFather (via Father))
+Hierarchical inheritance: When a class directly extends its properties to multiples classes (ex: Animal -> Grandfather & Animal -> Bird)
+
+When you inherit the properties of a class, creating an object instance of said class no longer becomes necessary to access its properties
+Only creating an object instance of the children class is enough to access the parent's properties
+
+The class from which properties are being DIRECTLY inherited (via the "extends" keyword), is called a superclass
+
+Java doesn't support multiple superclass inheritance (inheritance from more than one class via direct extend)

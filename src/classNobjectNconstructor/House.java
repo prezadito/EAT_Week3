@@ -57,10 +57,16 @@ public class House {
     }
 
     // create subclass instance *why not do it in the main class?*
+
+    // in order to use the subclass' properties, an instance (object) of the subclass must be created before they're called using class instances in the main method
+    // you cannot access subclass properties directly; an object of the subclass must be created in the outer class they're in
+    // a class cannot access another class unless an object of the class is created beforehand
+    // a subclass/inner class object must be created in the outer class of the class (blueprint) it is in, not in the main runnable class in which it'll be called
+
     Backyard by = new Backyard();
 
     // subclass (inner class)
-    public class Backyard { // why did I HAVE to make it static?
+    public class Backyard {
         public void backyardSize() {
             System.out.println("The backyard has a basketball hoop");
         }
