@@ -1,0 +1,2 @@
+I noticed the main method never extends to/from other classes.
+Is inheritance never used on the main method, or do we only always create the object of the class we want to access properties of in it?
