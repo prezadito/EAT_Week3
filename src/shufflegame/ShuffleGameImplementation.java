@@ -2,14 +2,13 @@ package shufflegame;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 public class ShuffleGameImplementation implements ShuffleGameRoadmap {
     Integer[] array = { 1, 0, 1 };
     String[] messages = {"----------------------Welcome to shuffle game---------------------",
-                         "                       Guess where the 0 is!                      ",
-                         "                    Are you ready to play? y/n                    ",
+                         "Guess where the 0 is!",
+                         "Are you ready to play? y/n",
                          "Pick 1, 2 or 3!",
                          "Good guess!",
                          "Sorry!!! Wrong guess!",
@@ -25,6 +24,7 @@ public class ShuffleGameImplementation implements ShuffleGameRoadmap {
         System.out.println(messages[0]);
         System.out.println(messages[1]);
         System.out.println(messages[2]);
+        answer = sc.nextLine().charAt(0);
         askForValidAnswer();
     }
 
@@ -61,19 +61,20 @@ public class ShuffleGameImplementation implements ShuffleGameRoadmap {
 
     public void keepPlaying() {
         System.out.println("Do you want to keep playing? y/n");
+        sc.nextLine();
+        answer = sc.nextLine().charAt(0);
         askForValidAnswer();
     }
 
     public void askForValidAnswer() {
-        answer = sc.nextLine().charAt(0);
         while (answer != 'y' && answer != 'n') {
             System.out.println("Invalid entry. Please enter 'y' for yes or 'n' for no");
             answer = sc.nextLine().charAt(0);
-            if (answer == 'y') {
-                runGame();
-            } else {
-                System.out.println(messages[7]);
-            }
+        }
+        if (answer == 'y') {
+            runGame();
+        } else {
+            System.out.println(messages[7]);
         }
     }
 
@@ -81,10 +82,7 @@ public class ShuffleGameImplementation implements ShuffleGameRoadmap {
         while (guess != 1 && guess != 2 && guess != 3) {
             System.out.println("Invalid entry. Please enter 1, 2 or 3");
             guess = sc.nextInt();
-            if (guess == 1 || guess == 2 || guess == 3) {
-                checkAnswer();
-            }
         }
-
+        checkAnswer();
     }
 }
