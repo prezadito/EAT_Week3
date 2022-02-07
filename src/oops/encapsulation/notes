@@ -1,0 +1,14 @@
+Encapsulation allows for the access of private data while still keeping them protected by the private keyword
+Since private variables are only accessible within the same class, encapsulation is used to access private data from another class without exposing it
+With encapsulation we can access a variable's data while not having access to the variable itself
+
+Encapsulation is used to retrieve and return data in the form of a "capsule"
+Data is retrieved using the gettr method (top layer of "capsule")
+Data is returned using the settr method (bottom layer "capsule")
+
+Create gettr/settr methods in the class where the protected variable(s) are
+Call the gettr/settr methods in the class where you want to access them from
+
+We can write code blocks inside the settr/gettr methods that set/return data based on pre-defined conditions (for ex: if/else statements)
+
+Encapsulation = data hiding

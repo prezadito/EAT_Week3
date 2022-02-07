@@ -1,0 +1,38 @@
+Abstraction = implementation hiding / road map
+Implementation = when you fill a class or method block with code
+
+Road map: Interface provides a class with methods a class which implements said interface must have, but doesn't specify how; that's up to the class
+Classes can still declare and implement their own methods, ones which were never declared in the interface they're implementing
+
+An interface is a road map for a concrete class (as opposed to an abstract class or another interface; those aren't concrete classes)
+An interface is a contract between classes; classes implementing an interface MUST implement (fill in the codes of) all the unimplemented methods from the interface
+All methods in an interface are abstract methods, since they are unimplemented
+
+A concrete class is one where all methods are implemented
+
+Interface only holds methods (without the implementation; declaration by name only)
+Nothing inside the code block; not even the curly braces
+
+All the declared, but un-implemented, methods in the interface must be implemented (filled in with code) in the class which "implements" that interface
+ALL the un-implemented methods must be implemented; no need to @Override because there isn't any previous implementation to override in the first place
+Overriding is only necessary when you want to implement a method that has already been previously implemented in another class
+Ex: when you're implementing a method that has already been implemented in a superclass that implements an interface, from which you're accessing properties via inheritance
+No need to override if both classes are implementing the same interface; both classes can implement the methods as it fits its purpose
+
+A class can implement multiple interfaces
+
+An "abstract" class can have implemented and un-implemented methods
+An "abstract" method should be un-implemented, without any code block/curly braces
+You can extend an "abstract" class (or a regular class) to another class, and still implement from interface(s)
+Ex: public class Toyota extends ModernCar implements Car, Motor...
+The declared, unimplemented, abstract methods in the abstract class must be implemented in the class that inherits from the abstract class
+
+Object instance of interfaces or abstract classes cannot be created
+You can create an object instance of a class using an interface's name if the class implements said interface (in the main method)
+Ex: interface_name name_of_object_to_be_created = new class_name();
+
+Creating an object instance using interface_name vs class_name:
+- Creating an object instance using interface_name will give you access to roadmap/unimplemented method ONLY
+- Creating an object instance using class_name will give you access to the implemented methods of the class itself
+
+Q: What are the differences between interface and abstract class? (ask to explain each bullet point from list)
