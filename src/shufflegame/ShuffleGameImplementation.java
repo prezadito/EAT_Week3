@@ -2,37 +2,29 @@ package shufflegame;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ShuffleGameImplementation implements ShuffleGameRoadmap {
+
+    // global variables
     Integer[] array = { 1, 0, 1 };
-    String[] messages = {"----------------------Welcome to shuffle game---------------------",
-                         "Guess where the 0 is!",
-                         "Are you ready to play? y/n",
-                         "Pick 1, 2 or 3!",
-                         "Good guess!",
-                         "Sorry!!! Wrong guess!",
-                         "Do you want to keep playing? y/n",
-                         "See you next time!",
-                         "Not a valid answer; please try again!"};
     char answer;
     int guess;
 
+    // create new scanner object
     Scanner sc = new Scanner(System.in);
-
-    public void intro() {
-        System.out.println(messages[0]);
-        System.out.println(messages[1]);
-        System.out.println(messages[2]);
-        answer = sc.nextLine().charAt(0);
-        askForValidAnswer();
-    }
 
     public void runGame() {
         shuffleGame();
-        System.out.println(messages[3]);
-        guess = sc.nextInt();
         askForValidGuess();
+    }
+
+    public void intro() {
+        System.out.println("----------------------Welcome to shuffle game---------------------");
+        System.out.println("Guess where the 0 is!");
+        System.out.println("Are you ready to play? y/n");
+        askForValidAnswer();
     }
 
     public void shuffleGame() {
@@ -50,39 +42,48 @@ public class ShuffleGameImplementation implements ShuffleGameRoadmap {
     }
 
     public void wrongAnswer() {
-        System.out.println(messages[5]);
+        System.out.println("Sorry!!! Wrong guess!");
         keepPlaying();
     }
 
     public void rightAnswer() {
-        System.out.println(messages[4]);
+        System.out.println("Good guess!");
         keepPlaying();
     }
 
     public void keepPlaying() {
         System.out.println("Do you want to keep playing? y/n");
-        sc.nextLine();
-        answer = sc.nextLine().charAt(0);
         askForValidAnswer();
     }
 
     public void askForValidAnswer() {
-        while (answer != 'y' && answer != 'n') {
-            System.out.println("Invalid entry. Please enter 'y' for yes or 'n' for no");
-            answer = sc.nextLine().charAt(0);
-        }
+        do {
+            try {
+                answer = sc.nextLine().charAt(0);
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid entry. Please enter 'y' for yes or 'n' for no");
+            }
+            sc.nextLine(); // clears the buffer
+        } while (answer != 'y' && answer != 'n');
+
         if (answer == 'y') {
             runGame();
         } else {
-            System.out.println(messages[7]);
+            System.out.println("See you next time!");
         }
     }
 
     public void askForValidGuess() {
-        while (guess != 1 && guess != 2 && guess != 3) {
-            System.out.println("Invalid entry. Please enter 1, 2 or 3");
-            guess = sc.nextInt();
-        }
+        do {
+            try {
+                System.out.print("Pick 1, 2 or 3!");
+                guess = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid entry. Please enter 1, 2 or 3");
+            }
+            sc.nextLine(); // clears the buffer
+        } while (guess != 1 && guess != 2 && guess != 3);
+
         checkAnswer();
     }
 }
