@@ -57,6 +57,7 @@ public class House {
     }
 
     // create subclass instance *why not do it in the main class?*
+    // otherwise outer class won't have access to subclass
     Backyard by = new Backyard();
 
     // subclass (inner class)
